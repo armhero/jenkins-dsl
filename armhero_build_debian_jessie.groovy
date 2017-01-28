@@ -29,7 +29,7 @@ job('armhero/build.debian-jessie') {
     cron('H 4 * * 0')
   }
   steps {
-    shell('./build.sh -a armhf -r jessie -m "http://ftp.ch.debian.org/debian"')
+    shell('sudo ./build.sh -a armhf -r jessie -m "http://ftp.ch.debian.org/debian"')
     shell('''
     docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 

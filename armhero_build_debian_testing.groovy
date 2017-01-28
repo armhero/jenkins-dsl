@@ -30,7 +30,7 @@ job('armhero/build.debian-testing') {
     cron('H 4 * * *')
   }
   steps {
-    shell('ARCH=armhf ./build.sh -r testing -t testing')
+    shell('sudo  ./build.sh -a armhf -r testing -t testing -m "http://ftp.ch.debian.org/debian"')
     shell('''
     docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
