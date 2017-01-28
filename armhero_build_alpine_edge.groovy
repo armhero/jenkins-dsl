@@ -35,6 +35,9 @@ job('armhero/build.alpine-edge') {
 
     docker push armhero/alpine:edge
     docker rmi armhero/alpine:edge
+
+    # Access Microbadger Github
+    curl -X POST https://hooks.microbadger.com/images/armhero/alpine/ufmYLRNfn7Uj_sXNIW2SGuEg6Qo=
     ''')
   }
   publishers {
