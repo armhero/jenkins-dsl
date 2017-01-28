@@ -18,7 +18,7 @@ job('armhero/build.alpine-3.4') {
   scm {
     git {
       remote {
-        url('git@code.dini-mueter.net:armhero/alpine.git')
+        url('git@github.com:armhero/alpine.git')
         branches('*/master')
         credentials('8ffaa0c1-6e5d-4884-b2ee-854685476789')
       }
