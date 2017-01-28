@@ -1,8 +1,4 @@
 #!groovy
-folder('armhero') {
-    displayName('ARMhero')
-    description('ARMhero Projects')
-}
 job('armhero/build.alpine-3.4') {
   label('rpi3')
   logRotator {
