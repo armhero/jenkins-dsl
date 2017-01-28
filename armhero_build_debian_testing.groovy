@@ -35,6 +35,9 @@ job('armhero/build.debian-testing') {
 
     docker push armhero/debian:testing
     docker rmi armhero/debian:testing
+
+    # Access Microbadger Github
+    curl -X POST https://hooks.microbadger.com/images/armhero/debian/ofWl4y_cEXnJa_GY3FbESssDdBs=
     ''')
   }
   publishers {

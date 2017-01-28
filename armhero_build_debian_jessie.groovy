@@ -39,6 +39,9 @@ job('armhero/build.debian-jessie') {
 
     docker push armhero/debian:jessie
     docker rmi armhero/debian:jessie
+
+    # Access Microbadger Github
+    curl -X POST https://hooks.microbadger.com/images/armhero/debian/ofWl4y_cEXnJa_GY3FbESssDdBs=
     ''')
   }
   publishers {
