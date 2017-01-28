@@ -1,5 +1,6 @@
 #!groovy
 job('armhero/build.debian-testing') {
+  disabled()
   label('rpi3')
   logRotator {
     numToKeep(30)
