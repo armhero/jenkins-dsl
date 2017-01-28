@@ -29,7 +29,7 @@ job('armhero/build.debian-testing') {
     cron('H 4 * * *')
   }
   steps {
-    shell('sudo ARCH=armhf ./build.sh -r testing -t testing')
+    shell('ARCH=armhf ./build.sh -r testing -t testing')
     shell('''
     docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 

@@ -29,7 +29,7 @@ job('armhero/build.debian-jessie') {
     cron('H 4 * * 0')
   }
   steps {
-    shell('sudo ARCH=armhf ./build.sh -r jessie')
+    shell('ARCH=armhf ./build.sh -r jessie')
     shell('''
     docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
