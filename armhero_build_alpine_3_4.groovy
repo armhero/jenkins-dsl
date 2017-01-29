@@ -1,6 +1,6 @@
 #!groovy
 job('armhero/build.alpine-3.4') {
-  label('rpi3')
+  label('armhf')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)
@@ -31,14 +31,14 @@ job('armhero/build.alpine-3.4') {
   steps {
     shell('sudo ARCH=armhf ./build.sh -r v3.4')
     shell('''
-    docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
+    sudo docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
-    docker tag armhero/alpine:latest armhero/alpine:3.4
-    docker push armhero/alpine:latest
-    docker rmi armhero/alpine:latest
+    sudo docker tag armhero/alpine:latest armhero/alpine:3.4
+    sudo docker push armhero/alpine:latest
+    sudo docker rmi armhero/alpine:latest
 
-    docker push armhero/alpine:3.4
-    docker rmi armhero/alpine:3.4
+    sudo docker push armhero/alpine:3.4
+    sudo docker rmi armhero/alpine:3.4
 
     # Access Microbadger Github
     curl -X POST https://hooks.microbadger.com/images/armhero/alpine/ufmYLRNfn7Uj_sXNIW2SGuEg6Qo=

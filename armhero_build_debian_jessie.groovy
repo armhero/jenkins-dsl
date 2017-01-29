@@ -1,6 +1,6 @@
 #!groovy
 job('armhero/build.debian-jessie') {
-  label('rpi3')
+  label('armhf')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)
@@ -31,14 +31,14 @@ job('armhero/build.debian-jessie') {
   steps {
     shell('sudo ./build.sh -a armhf -r jessie -m "http://ftp.ch.debian.org/debian"')
     shell('''
-    docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
+    sudo docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
-    docker tag armhero/debian:latest armhero/debian:jessie
-    docker push armhero/debian:latest
-    docker rmi armhero/debian:latest
+    sudo docker tag armhero/debian:latest armhero/debian:jessie
+    sudo docker push armhero/debian:latest
+    sudo docker rmi armhero/debian:latest
 
-    docker push armhero/debian:jessie
-    docker rmi armhero/debian:jessie
+    sudo docker push armhero/debian:jessie
+    sudo docker rmi armhero/debian:jessie
 
     # Access Microbadger Github
     curl -X POST https://hooks.microbadger.com/images/armhero/debian/ofWl4y_cEXnJa_GY3FbESssDdBs=
