@@ -39,6 +39,8 @@ job('armhero/build.raspbian-jessie') {
 
     sudo docker push armhero/raspbian:jessie
     sudo docker rmi armhero/raspbian:jessie
+
+    curl -X POST https://hooks.microbadger.com/images/armhero/raspbian/lHKoGhLH0mK2Jw5wYQ36XbQMj5Q=
     ''')
   }
   publishers {

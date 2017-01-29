@@ -35,6 +35,8 @@ job('armhero/build.raspbian-testing') {
 
     sudo docker push armhero/raspbian:testing
     sudo docker rmi armhero/raspbian:testing
+
+    curl -X POST https://hooks.microbadger.com/images/armhero/raspbian/lHKoGhLH0mK2Jw5wYQ36XbQMj5Q=
     ''')
   }
   publishers {
