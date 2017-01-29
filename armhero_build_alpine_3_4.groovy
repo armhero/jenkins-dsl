@@ -26,7 +26,7 @@ job('armhero/build.alpine-3.4') {
   }
   triggers {
     scm('H/5 * * * *')
-    cron('H 4 * * 0')
+    cron('H 5 * * 0')
   }
   steps {
     shell('sudo ARCH=armhf ./build.sh -r v3.4')

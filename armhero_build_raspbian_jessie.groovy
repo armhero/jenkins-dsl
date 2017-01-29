@@ -26,7 +26,7 @@ job('armhero/build.raspbian-jessie') {
   }
   triggers {
     scm('H/5 * * * *')
-    cron('H 4 * * 0')
+    cron('H 5 * * 0')
   }
   steps {
     shell('sudo ./build.sh -a armhf -r jessie')

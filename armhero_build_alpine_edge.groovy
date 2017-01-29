@@ -26,7 +26,7 @@ job('armhero/build.alpine-edge') {
   }
   triggers {
     scm('H/5 * * * *')
-    cron('H 4 * * *')
+    cron('H 5 * * *')
   }
   steps {
     shell('sudo ARCH=armhf ./build.sh -r edge -t edge')

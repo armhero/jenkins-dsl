@@ -1,7 +1,6 @@
 #!groovy
 job('armhero/build.raspbian-testing') {
-  disabled()
-  label('rpi3')
+  label('armhf')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)
@@ -27,15 +26,15 @@ job('armhero/build.raspbian-testing') {
   }
   triggers {
     scm('H/5 * * * *')
-    cron('H 4 * * *')
+    cron('H 5 * * *')
   }
   steps {
     shell('sudo  ./build.sh -a armhf -r testing -t testing')
     shell('''
-    docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
+    sudo docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
-    docker push armhero/raspbian:testing
-    docker rmi armhero/raspbian:testing
+    sudo docker push armhero/raspbian:testing
+    sudo docker rmi armhero/raspbian:testing
     ''')
   }
   publishers {

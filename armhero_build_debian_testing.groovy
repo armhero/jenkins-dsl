@@ -27,7 +27,7 @@ job('armhero/build.debian-testing') {
   }
   triggers {
     scm('H/5 * * * *')
-    cron('H 4 * * *')
+    cron('H 5 * * *')
   }
   steps {
     shell('sudo  ./build.sh -a armhf -r testing -t testing -m "http://ftp.ch.debian.org/debian"')
