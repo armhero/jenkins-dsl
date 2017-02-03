@@ -1,6 +1,6 @@
 #!groovy
 job('armhero/build.raspbian-testing') {
-  label('armhf')
+  label('armv6')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)

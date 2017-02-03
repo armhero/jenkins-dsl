@@ -1,6 +1,6 @@
 #!groovy
 job('armhero/build.alpine-edge') {
-  label('armhf')
+  label('armv7')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)

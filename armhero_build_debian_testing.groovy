@@ -1,7 +1,6 @@
 #!groovy
 job('armhero/build.debian-testing') {
-  disabled()
-  label('rpi3')
+  label('armv7')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)
@@ -32,10 +31,10 @@ job('armhero/build.debian-testing') {
   steps {
     shell('sudo  ./build.sh -a armhf -r testing -t testing -m "http://ftp.ch.debian.org/debian"')
     shell('''
-    docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
+    sudo docker login -u \044{DOCKER_USERNAME} -p \044{DOCKER_PASSWORD}
 
-    docker push armhero/debian:testing
-    docker rmi armhero/debian:testing
+    sudo docker push armhero/debian:testing
+    sudo docker rmi armhero/debian:testing
 
     # Access Microbadger Github
     curl -X POST https://hooks.microbadger.com/images/armhero/debian/ofWl4y_cEXnJa_GY3FbESssDdBs=
