@@ -1,5 +1,6 @@
 #!groovy
 job('armhero/build.raspbian-testing') {
+  disabled()
   label('pr-armv6')
   logRotator {
     numToKeep(30)
