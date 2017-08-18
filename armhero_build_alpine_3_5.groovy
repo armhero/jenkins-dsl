@@ -1,6 +1,6 @@
 #!groovy
 job('armhero/build.alpine-3.5') {
-  label('pr-armv6')
+  label('pr-armv7')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)
@@ -38,7 +38,7 @@ job('armhero/build.alpine-3.5') {
     sudo docker tag armhero/alpine:3.5 armhero/alpine:latest
     sudo docker push armhero/alpine:latest
     sudo docker rmi armhero/alpine:latest
-    
+
     sudo docker rmi armhero/alpine:3.5
 
     # Access Microbadger Github

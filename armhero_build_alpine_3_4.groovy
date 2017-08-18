@@ -1,6 +1,6 @@
 #!groovy
 job('armhero/build.alpine-3.4') {
-  label('pr-armv6')
+  label('pr-armv7')
   logRotator {
     numToKeep(30)
     artifactNumToKeep(1)
